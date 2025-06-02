@@ -1,120 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diet Fitness Tracker</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+</head>
+<body>
     <!-- Header with title and dark mode toggle -->
     <header>
-      <h1>Diet Fitness Tracker</h1>
-      <button id="toggleDarkMode">Toggle Dark Mode</button>
+        <h1>Diet Fitness Tracker</h1>
+        <button id="toggleDarkMode">Toggle Dark Mode</button>
     </header>
 
-    <!-- Main content area with all feature sections -->
     <main>
-      <!-- Meals Section -->
-      <section id="log-meals">
-        <h2>Log Your Meals</h2>
-        <div class="form-group">
-          <input type="text" id="meal" placeholder="Enter meal name" />
-          <input type="number" id="calories" placeholder="Calories" />
-          <button onclick="addMeal()">Add Meal</button>
-        </div>
-        <ul id="meal-list"></ul>
-      </section>
+        <!-- Meals Section -->
+        <section id="log-meals">
+            <h2>Log Your Meals</h2>
+            <div class="form-group">
+                <input type="text" id="meal" placeholder="Enter meal name" />
+                <input type="number" id="calories" placeholder="Calories" />
+                <button onclick="addMeal()">Add Meal</button>
+            </div>
+            <ul id="meal-list"></ul>
+        </section>
 
-      <!-- Workout Section -->
-      <section id="log-workout">
-        <h2>Track Your Workouts</h2>
-        <div class="form-group">
-          <input type="text" id="exercise" placeholder="Enter workout" />
-          <input type="number" id="duration" placeholder="Duration (min)" />
-          <button onclick="addWorkout()">Add Workout</button>
-        </div>
-        <ul id="workout-list"></ul>
-      </section>
+        <!-- Workout Section -->
+        <section id="log-workout">
+            <h2>Track Your Workouts</h2>
+            <div class="form-group">
+                <input type="text" id="exercise" placeholder="Enter workout" />
+                <input type="number" id="duration" placeholder="Duration (min)" />
+                <button onclick="addWorkout()">Add Workout</button>
+            </div>
+            <ul id="workout-list"></ul>
+        </section>
 
-      <!-- BMI Calculator Section -->
-      <section id="bmi-calculator">
-        <h2>BMI Calculator</h2>
-        <div class="form-group">
-          <input type="number" id="weight" placeholder="Weight in kg" />
-          <input type="number" id="height" placeholder="Height in cm" />
-          <button onclick="calculateBMI()">Calculate BMI</button>
-        </div>
-        <div id="bmi-result"></div>
-      </section>
+        <!-- BMI Calculator Section -->
+        <section id="bmi-calculator">
+            <h2>BMI Calculator</h2>
+            <div class="form-group">
+                <input type="number" id="weight" placeholder="Weight in kg" />
+                <input type="number" id="height" placeholder="Height in cm" />
+                <button onclick="calculateBMI()">Calculate BMI</button>
+            </div>
+            <div id="bmi-result"></div>
+        </section>
 
-      <!-- Water Intake Tracker Section -->
-      <section id="water-tracker">
-        <h2>Water Intake Tracker</h2>
-        <div class="form-group">
-          <input type="number" id="waterAmount" placeholder="Amount in ml" />
-          <button onclick="addWater()">Add Water</button>
-        </div>
-        <div id="water-progress">0 ml</div>
-      </section>
+        <!-- Water Intake Tracker Section -->
+        <section id="water-tracker">
+            <h2>Water Intake Tracker</h2>
+            <div class="form-group">
+                <input type="number" id="waterAmount" placeholder="Amount in ml" />
+                <button onclick="addWater()">Add Water</button>
+            </div>
+            <div id="water-progress">0 ml</div>
+        </section>
 
-      <!-- Sleep Tracker Section -->
-      <section id="sleep-tracker">
-        <h2>Sleep Tracker</h2>
-        <div class="form-group">
-          <input type="number" id="sleepHours" placeholder="Hours of Sleep" />
-          <button onclick="addSleep()">Add Sleep</button>
-        </div>
-        <ul id="sleep-list"></ul>
-      </section>
+        <!-- Sleep Tracker Section -->
+        <section id="sleep-tracker">
+            <h2>Sleep Tracker</h2>
+            <div class="form-group">
+                <input type="number" id="sleepHours" placeholder="Hours of Sleep" />
+                <button onclick="addSleep()">Add Sleep</button>
+            </div>
+            <ul id="sleep-list"></ul>
+        </section>
 
-      <!-- Daily Goals Section -->
-      <section id="daily-goals">
-        <h2>Daily Goals</h2>
-        <div class="form-group">
-          <input type="text" id="goal-input" placeholder="Enter your goal" />
-          <button onclick="addGoal()">Add Goal</button>
-        </div>
-        <ul id="goal-list"></ul>
-      </section>
+        <!-- Daily Goals Section with Drag-and-Drop Feature -->
+        <section id="daily-goals">
+            <h2>Daily Goals</h2>
+            <div class="form-group">
+                <input type="text" id="goal-input" placeholder="Enter your goal" />
+                <button onclick="addGoal()">Add Goal</button>
+            </div>
+            <ul id="goal-list" class="sortable-list"></ul>
+        </section>
 
-      <!-- Progress Summary Section -->
-      <section id="progress">
-        <h2>Progress Summary</h2>
-        <div class="progress-stat">
-          <p>Total Calories: <span id="total-calories">0</span></p>
-          <p>Total Workout Time: <span id="total-duration">0</span> minutes</p>
-          <p>Total Water Intake: <span id="total-water">0</span> ml</p>
-          <p>Total Sleep Hours: <span id="total-sleep">0</span></p>
-        </div>
-        <button onclick="resetTracker()">Reset Tracker</button>
-        <button onclick="saveData()">Save Data</button>
-      </section>
+        <!-- Progress Summary Section -->
+        <section id="progress">
+            <h2>Progress Summary</h2>
+            <div class="progress-stat">
+                <p>Total Calories: <span id="total-calories">0</span></p>
+                <p>Total Workout Time: <span id="total-duration">0</span> minutes</p>
+                <p>Total Water Intake: <span id="total-water">0</span> ml</p>
+                <p>Total Sleep Hours: <span id="total-sleep">0</span></p>
+            </div>
+            <button onclick="resetTracker()">Reset Tracker</button>
+            <button onclick="saveData()">Save Data</button>
+            <canvas id="progress-chart"></canvas> <!-- Placeholder for Graphical Overview -->
+        </section>
 
-      <!-- History Section -->
-      <section id="history">
-        <h2>History</h2>
-        <div id="history-content">
-          <!-- History logs are appended here -->
-        </div>
-        <button onclick="clearHistory()">Clear History</button>
-      </section>
+        <!-- History Section -->
+        <section id="history">
+            <h2>History</h2>
+            <div id="history-content">
+                <!-- History logs are appended here -->
+            </div>
+            <button onclick="clearHistory()">Clear History</button>
+        </section>
 
-      <!-- Modal for Editing Entries -->
-      <div id="modal" class="modal">
-        <div class="modal-content">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <h3>Edit Entry</h3>
-          <input type="text" id="edit-input" />
-          <button onclick="saveEdit()">Save Changes</button>
+        <!-- Personalized Recommendations Section -->
+        <section id="recommendations">
+            <h2>Personalized Recommendations</h2>
+            <p>Based on your data, here are some suggestions:</p>
+            <ul id="recommendation-list"></ul>
+        </section>
+
+        <!-- Modal for Editing Entries -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>Edit Entry</h3>
+                <input type="text" id="edit-input" />
+                <button onclick="saveEdit()">Save Changes</button>
+            </div>
         </div>
-      </div>
     </main>
 
     <footer>
-      <p>&copy; 2025 Diet Fitness Tracker</p>
+        <p>&copy; 2025 Diet Fitness Tracker</p>
     </footer>
 
     <script src="java.js"></script>
-  </body>
+</body>
 </html>
